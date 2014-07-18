@@ -28,9 +28,10 @@
 
       <aside class="left-off-canvas-menu">
         <ul class="off-canvas-list">
-          <li><label>Foundation</label></li>
-          <li><a href="#">The Psychohistorians</a></li>
-          <li><a href="#">...</a></li>
+          <li><label>Whitepapers</label></li>
+          <li><a href="#">Modeling Pension Costs</a></li>
+          <li><a href="#">Modeling Pension Benefits</a></li>
+          <li><a href="#">Glossary: Modeling Pension Benefits and Costs</a></li>
         </ul>
       </aside>
 
@@ -63,11 +64,18 @@
                 <a href="#fn:1" rel="footnote">1</a>
             </sup> 
             While the actuarial profession uses a number of methods to calculate normal cost, Entry Age Normal (EAN), the method we use below, is the 
-            most prevalent and is the method specified by the new GASB accounting standards.2 Under the EAN 
+            most prevalent and is the method specified by the new GASB accounting standards.
+            <sup id="fnref:2">
+                <a href="#fn:2" rel="footnote">2</a>
+            </sup>  
+            Under the EAN 
             method, normal cost is calculated as the constant percentage of wages that if contributed across a 
             worker’s career, would fully cover the benefit payments earned by the worker. The calculation of normal 
             cost takes into account the worker separation distribution, mortality, salary growth, and anticipated 
             earnings on contributions.
+            <sup id="fnref:3">
+                <a href="#fn:3" rel="footnote">3</a>
+            </sup> 
           </p>
           <p>
             Normal cost is calculated by dividing the expected value of future retirement benefits at age of workforce 
@@ -76,6 +84,92 @@
             across a worker’s career. Equation (6) represents the normal cost calculation and equations (1) through (5) 
             document the steps. This calculation is done for all a ∊ A, where A is inclusive of elements 𝑎𝑒 to 𝑎𝑧. 
           </p>
+          <blockquote>
+            𝑃𝑉𝐵𝑎𝑠
+            𝐴𝑛𝑛𝑢𝑖𝑡𝑦 = max{𝑎𝑟∈𝐴|𝑎𝑟≥𝑎𝑠}�𝐵(𝑎𝑟|𝑎𝑠) ∗𝐴𝐹𝑎𝑟 ∗ 𝑓(𝑎𝑟|𝑎𝑠) ∗ (1+𝑟)−(𝑎𝑟−𝑎𝑠)
+            � (1) 
+             𝑃𝑉𝐵𝑎𝑠 = 𝑚𝑎𝑥�𝑃𝑉𝐵𝑎𝑠
+            𝐴𝑛𝑛𝑢𝑖𝑡𝑦,𝑓𝑎𝑠
+            (𝐸𝐸𝐶,𝐸𝑅𝐶,𝑟)� (2) 
+             𝑃𝑉𝐵𝑎𝑠
+            𝑛𝑒𝑡 = 𝑃𝑉𝐵𝑎𝑠 −𝑇𝑜𝑡𝐶𝑜𝑛𝑡𝑎𝑠(3)
+          </blockquote>
+          <p>
+            where B(ar│as) is the starting annuity a worker would receive at age ar, given the worker separated at age 
+            as, f(ar│as) is the conditional probability of survival from as to ar, and r is the rate used to discount future 
+            cash flows. The function 𝑓𝑎𝑠(𝐸𝐸𝐶,𝐸𝑅𝐶,𝑟) represents the retirement plan’s withdraw and nominal 
+            account based features which are a function of contributions and interest. Finally, 𝑇𝑜𝑡𝐶𝑜𝑛𝑡𝑎𝑠 represents 
+            cumulative worker contributions at age of separation. 
+            <sup id="fnref:4">
+                <a href="#fn:4" rel="footnote">4</a>
+            </sup>  
+            See the white paper on the benefits model for the calculations underlying each of these variables.
+          </p>
+          <p>
+            Equation (4), the numerator of the normal cost formula, then calculates the expected value of retirement 
+            benefits standing at entry age, ae, where g(as) represents the separation probability distribution for a given 
+            entry age.
+            <sup id="fnref:5">
+                <a href="#fn:5" rel="footnote">5</a>
+            </sup> 
+             The summation extends to the last possible age at which a worker might separate from 
+            employment, az.
+            <sup id="fnref:6">
+                <a href="#fn:6" rel="footnote">6</a>
+            </sup> 
+          </p>
+          <blockquote>
+            E𝑎𝑒[𝑃𝑉𝐵𝑛𝑒𝑡] = ∑ 𝑃𝑉𝐵𝑎
+𝑛𝑒𝑡(1+𝑟) 𝑎𝑧 −(𝑎−𝑎𝑒) 𝑎=𝑎𝑒 ∗𝑔𝑎𝑒(𝑎𝑠) (4) 
+          </blockquote>
+          <p>
+            Equation (5), the denominator of the normal cost formula, calculates the expected cumulative wages for a 
+worker entering the pension plan at age ae.
+          </p>
+          <blockquote>
+            E𝑎𝑒[𝐶𝐶𝑊𝑒] = ∑ 𝐶𝑊𝑎 ∗ (1+𝑟) 𝑎𝑧 −(𝑎−𝑎𝑒) 𝑎=𝑎𝑒 ∗𝑔𝑎𝑒(𝑎𝑠) (5) 
+          </blockquote>
+          <p>
+            Equation (6) represents normal cost, the contributions as a constant percentage of current wages necessary 
+to cover accrued benefits across a worker’s career given entry age ae. Equation (5) is simply the quotient 
+of equation (4) and equation (5). It is important to note that normal cost varies by age of entry within a 
+benefits tier. Normal cost for each possible entry age can represented by a k x 1 vector �
+𝑁𝐶����⃗ whose 
+elements are 𝑁𝐶𝑎𝑒.
+          </p>
+          <blockquote>
+            𝑁𝐶𝑎𝑒 = E𝑎𝑒[𝑃𝑉𝐵𝑛𝑒𝑡]/ E𝑎𝑒[𝐶𝐶𝑊𝑒] (6) 
+
+          </blockquote>
+          <h4>
+            Workforce 
+          </h4>
+          <p>
+            Ultimately, the goal is to model the total cost of the retirement benefits earned by an entire workforce 
+over time, and to do so we need to model the workforce. This section outlines the workforce model and 
+its underlying assumptions. To calculate the costs over time for different cohorts of new workers, we 
+develop a model for the workforce, based on two main assumptions: 
+
+          </p>
+          <p>
+            1) The size of the workforce can be modeled using a growth parameter and natural rate of separation. In 
+our model, the growth of the workforce (number of workers) over time is a user-input parameter 𝛿 
+reflecting the user’s beliefs about the plan sponsor’s natural rate of employment growth.
+            <sup id="fnref:7">
+              <a href="#fn:7" rel="footnote">7</a>
+            </sup> 
+ Each year the 
+workforce will also experience a natural separation rate S, which is a function of the worker’s age and 
+years of service. 
+<sup id="fnref:8">
+  <a href="#fn:8" rel="footnote">8</a>
+</sup> 
+          </p>
+          <p>
+            2) The entry age distribution for new cohorts will remain constant over time. The initial distribution used 
+in our model is constructed using data on past plan experience. 
+          </p>
+
         </div>
       </div>
 
@@ -86,6 +180,27 @@
           <div class="footnotes"><ol>
               <li class="footnote" id="fn:1">
                   <p>The plan sponsor’s funding policy is determined by its chosen discount rate, amortization policy, asset smoothing, and a number of less significant assumptions.<a href="#fnref:1" title="return to article"> ↩</a></p>
+              </li>
+              <li class="footnote" id="fn:2">
+                  <p>Statement No. 67, Financial Reporting for Pension Plans, effective for financial statements for fiscal years beginning after June 15, 2013, and Statement No. 68, Accounting and Financial Reporting for Pensions, effective for fiscal years beginning after June 15, 2014. (Issued 06/12). <a href="#fnref:2" title="return to article"> ↩</a></p>
+              </li>
+              <li class="footnote" id="fn:3">
+                  <p>It is important to note that the purpose of the calculations outlined in this document is to estimate the cost to the plan sponsor of the retirement plan. As currently specified, we model realized cost under deterministic return scenarios where the sponsor fully funds future benefit accruals at the realized rate of return. We fully acknowledge that this is a simplification of actual plan funding policy, and we anticipate extending the capabilities of the model in this area in future iterations. <a href="#fnref:3" title="return to article"> ↩</a></p>
+              </li>
+              <li class="footnote" id="fn:4">
+                  <p>𝑇𝑜𝑡𝐶𝑜𝑛𝑡{𝑎∊𝐴 | 𝑎>𝑎𝑒} = 𝐶𝑊𝑎−1 ∗𝐸𝐸𝐶 + 𝑇𝑜𝑡𝐶𝑜𝑛𝑡𝑎−1 ∗ (1+ 𝑟) <a href="#fnref:4" title="return to article"> ↩</a></p>
+              </li>
+              <li class="footnote" id="fn:5">
+                  <p>The separation probability function, g(), is estimated using the decrement tables reported by each plan. This function is calculated using hazard rates for normal separation, mortality and retirement. <a href="#fnref:5" title="return to article"> ↩</a></p>
+              </li>
+              <li class="footnote" id="fn:6">
+                  <p>We assume this age to be 75.<a href="#fnref:6" title="return to article"> ↩</a></p>
+              </li>
+              <li class="footnote" id="fn:7">
+                  <p>The workforce growth parameter is currently modeled as a constant, but could easily be allowed to vary across time.<a href="#fnref:7" title="return to article"> ↩</a></p>
+              </li>
+              <li class="footnote" id="fn:8">
+                  <p>S includes both the probability of separation from the workforce and mortality<a href="#fnref:8" title="return to article"> ↩</a></p>
               </li>
           </ol></div>
           <!--end Footnotes-->
