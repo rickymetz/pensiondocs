@@ -1,0 +1,49 @@
+//font stack
+@import url(http://fonts.googleapis.com/css?family=Gentium+Book+Basic:400,400italic,700|Open+Sans:800,600);
+
+%serif{
+	font-family: 'Gentium Book Basic', serif;
+}
+%sans{
+	font-family: 'Open Sans', sans-serif;
+}
+
+//font sizing
+$type-scale: 1.168;
+$type-size: 1.125em;
+
+//font scale
+$h4-size: $type-size * $type-scale;
+$h3-size: $h4-size * $type-scale;
+$h2-size: $h3-size * $type-scale;
+$h1-size: $h2-size * $type-scale;
+$h5-size: $h4-size / $type-scale;
+$h6-size: $h5-size / $type-scale;
+
+h1, h2, h3, h4, h5, h6{
+	@extend %sans;
+}
+
+
+h1 {
+	font-size: $h1-size;
+}
+h2 {
+	font-size: $h2-size;
+}
+h3 {
+	font-size: $h3-size;
+}
+h4 {
+	font-size: $h4-size;
+}
+h5 {
+	font-size: $h5-size;
+}
+h6 {
+	font-size: $h6-size;
+}
+p{
+	font-size: $type-size;
+	@extend %serif;
+}

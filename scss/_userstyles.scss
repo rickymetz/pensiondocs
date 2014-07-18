@@ -1,0 +1,38 @@
+$main-color: #0D4973;
+$main-color-lite: adjust-color($main-color, $saturation: 0, $lightness: 20);
+$body-color: #505050;
+
+.wp-title{
+	text-align: center;
+	margin: 4em 0 2em;
+	& h2{
+		color: $main-color;
+		font-weight: bold;
+	}
+	& h3{
+		color: $main-color-lite;
+	}
+}
+
+.wp-content{
+	& h4{
+		color: $main-color;
+		font-weight: bold;
+		margin: 2em 0 1em;
+	}
+	& p{
+		color:$body-color;
+	}
+	& blockquote{
+		margin: 3em 0 3em;
+	}
+}
+
+.footnotes{
+	margin: 2em 0 4em;
+	max-width: 80%;
+	& p{
+		font-size: $h6-size;
+		color: $body-color;
+	}
+}

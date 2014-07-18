@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Gentium+Book+Basic:400,400italic,700|Open+Sans:800,600);
 /* line 329, ../bower_components/foundation/scss/foundation/components/_global.scss */
 meta.foundation-version {
   font-family: "/5.2.3/";
@@ -8050,4 +8051,89 @@ th.hide-for-touch {
   th.show-for-print {
     display: table-cell !important;
   }
+}
+/* line 4, ../scss/_type.scss */
+p {
+  font-family: 'Gentium Book Basic', serif;
+}
+
+/* line 7, ../scss/_type.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* line 28, ../scss/_type.scss */
+h1 {
+  font-size: 2.09375em;
+}
+
+/* line 31, ../scss/_type.scss */
+h2 {
+  font-size: 1.79259em;
+}
+
+/* line 34, ../scss/_type.scss */
+h3 {
+  font-size: 1.53475em;
+}
+
+/* line 37, ../scss/_type.scss */
+h4 {
+  font-size: 1.314em;
+}
+
+/* line 40, ../scss/_type.scss */
+h5 {
+  font-size: 1.125em;
+}
+
+/* line 43, ../scss/_type.scss */
+h6 {
+  font-size: 0.96318em;
+}
+
+/* line 46, ../scss/_type.scss */
+p {
+  font-size: 1.125em;
+}
+
+/* line 5, ../scss/_userstyles.scss */
+.wp-title {
+  text-align: center;
+  margin: 4em 0 2em;
+}
+/* line 8, ../scss/_userstyles.scss */
+.wp-title h2 {
+  color: #0d4973;
+  font-weight: bold;
+}
+/* line 12, ../scss/_userstyles.scss */
+.wp-title h3 {
+  color: #1783cf;
+}
+
+/* line 18, ../scss/_userstyles.scss */
+.wp-content h4 {
+  color: #0d4973;
+  font-weight: bold;
+  margin: 2em 0 1em;
+}
+/* line 23, ../scss/_userstyles.scss */
+.wp-content p {
+  color: #505050;
+}
+/* line 26, ../scss/_userstyles.scss */
+.wp-content blockquote {
+  margin: 3em 0 3em;
+}
+
+/* line 31, ../scss/_userstyles.scss */
+.footnotes {
+  margin: 2em 0 4em;
+  max-width: 80%;
+}
+/* line 34, ../scss/_userstyles.scss */
+.footnotes p {
+  font-size: 0.96318em;
+  color: #505050;
 }
